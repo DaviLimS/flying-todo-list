@@ -5,7 +5,7 @@ const cardConstructor = (info) => {
     cardTemplate.classList.add('card');
 
     const headerDiv = document.createElement('div');
-    headerDiv.classList.classList.add('headerCard')
+    headerDiv.classList.add('headerCard')
     const middleDiv = document.createElement('div');
     middleDiv.classList.add('middleCard');
     const lowerDiv = document.createElement('div');
@@ -28,9 +28,9 @@ const cardConstructor = (info) => {
     cardTemplate.append(headerDiv, middleDiv, lowerDiv);
     return cardTemplate;
 }
-const main = document.querySelector('.main');
 
 export function loadScreen() {
+    const main = document.querySelector('.main');
     let defCard = cardConstructor(template);
     if(!main) {console.warn('.main element is not found'); return;}
     main.appendChild(defCard);
