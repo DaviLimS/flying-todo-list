@@ -51,7 +51,9 @@ body {
 .cardTitle {
     font-family: Roboto, sans-serif;
     font-style: oblique;
-    
+    text-align: center;
 }
 
-.cardDescription {}
+.cardDescription {
+    font-family: Roboto, sans-serif;
+}
