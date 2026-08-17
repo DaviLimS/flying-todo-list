@@ -4,8 +4,10 @@ const cardConstructor = (info) => {
     const cardTemplate = document.createElement('div');
     cardTemplate.classList.add('card');
     const title = document.createElement('h2');
+    title.classList.add('cardTitle');
     //Fazer checkbox depois
     const description = document.createElement('p');
+    description.classList.add('cardDescription');
     //fazer o field project dps
 
     title.textContent = info.title || '';
