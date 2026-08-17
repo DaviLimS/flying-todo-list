@@ -11,11 +11,13 @@ const cardConstructor = (info) => {
     title.textContent = info.title || '';
     description.textContent = info.description || '';
 
-    cardTemplate.appendChild(title, description);
+    cardTemplate.append(title, description);
+    return cardTemplate;
 }
 const main = document.querySelector('.main');
 
 export function loadScreen() {
     let defCard = cardConstructor(template);
-    main.append(defCard);
+    if(!main) {console.warn('.main element is not found'); return;}
+    main.appendChild(defCard);
 }
