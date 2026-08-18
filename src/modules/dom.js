@@ -13,7 +13,14 @@ const cardConstructor = (info) => {
 
     const title = document.createElement('h2');
     title.classList.add('cardTitle');
-    //Fazer checkbox depois
+
+    const checkbox = document.createElement('input');
+    checkbox.classList.add('checkbox');
+    checkbox.type = 'checkbox'
+    if (template.checkbox[1] === 1) {
+        checkbox.checked = true;
+    }
+
     const description = document.createElement('p');
     description.classList.add('cardDescription');
     //fazer o field project dps
@@ -21,7 +28,8 @@ const cardConstructor = (info) => {
     title.textContent = info.title || '';
     description.textContent = info.description || '';
 
-    headerDiv.appendChild(title);
+    if(template.checkbox[0] === 1) { headerDiv.append(checkbox) }
+    headerDiv.append(title);
     middleDiv.appendChild(description);
     //lowerDiv.appendChild();
 
