@@ -1,4 +1,5 @@
 import { template } from "./storage.js";
+import { createAnTodo } from "./todoManager.js";
 
 /**
  * acessar as informações do modal e criar um objeto com elas
@@ -56,6 +57,7 @@ export function loadScreen() {
 export function modalSetup() {
     const modal = document.querySelector('#task-modal');
     const openButton = document.querySelector('.open-modal');
+    const saveButton = document.querySelector('.save-task');
 
     if(!openButton || !modal) {
         console.warn("Modal or Button not finded");
@@ -64,5 +66,8 @@ export function modalSetup() {
 
     openButton.addEventListener('click', () => {
         modal.showModal();
+    });
+    saveButton.addEventListener('click', () => {
+        cardFactory(createAnTodo());
     });
 }
