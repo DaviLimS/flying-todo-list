@@ -9,7 +9,7 @@ import { template } from "./storage.js";
  * alterar localStorage
  */
 
-const cardConstructor = (info) => {
+const cardFactory = (info) => {
     const cardTemplate = document.createElement('div');
     cardTemplate.classList.add('card');
 
@@ -48,7 +48,7 @@ const cardConstructor = (info) => {
 
 export function loadScreen() {
     const main = document.querySelector('.main');
-    let defCard = cardConstructor(template);
+    let defCard = cardFactory(template);
     if(!main) {console.warn('.main element is not found'); return;}
     main.appendChild(defCard);
 }
