@@ -9,6 +9,7 @@ import { createAnTodo } from "./todoManager.js";
  * apagar objetos
  * alterar localStorage
  */
+const main = document.querySelector('.main');
 
 const cardFactory = (info) => {
     const cardTemplate = document.createElement('div');
@@ -48,7 +49,6 @@ const cardFactory = (info) => {
 }
 
 export function loadScreen() {
-    const main = document.querySelector('.main');
     let defCard = cardFactory(template);
     if(!main) {console.warn('.main element is not found'); return;}
     main.appendChild(defCard);
@@ -68,6 +68,6 @@ export function modalSetup() {
         modal.showModal();
     });
     saveButton.addEventListener('click', () => {
-        cardFactory(createAnTodo());
+        main.append(cardFactory(createAnTodo()));
     });
 }
