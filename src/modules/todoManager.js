@@ -1,6 +1,3 @@
-const taskTitle = document.querySelector('#task-title').value;
-const taskDescription = document.querySelector("#task-description").value;
-
 class Todo {
     constructor(title, description, checkbox, project)  {
         this.title = title;
@@ -11,6 +8,13 @@ class Todo {
 }
 
 export function createAnTodo() {
+    const taskTitle = document.querySelector('#task-title').value;
+    const taskDescription = document.querySelector("#task-description").value;  
+
+    if(!taskTitle || !taskDescription) {
+        console.warn('Title field or description fild is not defined');
+        return;
+    }
     const newTodo = new Todo('test', 'lorem ipsun is blasseedd');
     return newTodo
 }
