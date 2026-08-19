@@ -1,3 +1,4 @@
+import { isArrayBuffer } from "node:util/types";
 import { template } from "./storage.js";
 
 /**
@@ -57,5 +58,14 @@ export function loadScreen() {
 
 export function modalSetup() {
     const modal = document.querySelector('#task-modal');
-    const 
+    const openButton = document.querySelector('.open-modal');
+
+    if(!openButton || !modal) {
+        console.warn("Modal or Button not finded");
+        return;
+    }
+
+    openButton.addEventListener('click', () => {
+        modal.showModal();
+    });
 }
