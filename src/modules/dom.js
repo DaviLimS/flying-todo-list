@@ -54,3 +54,8 @@ export function loadScreen() {
     if(!main) {console.warn('.main element is not found'); return;}
     main.appendChild(defCard);
 }
+
+export function modalSetup() {
+    const modal = document.querySelector('#task-modal');
+    const 
+}

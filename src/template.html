@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,20 @@
 </head>
 <body>
     <header class="header"></header>
-     <main class="main"></main>
-     <aside class="sidebar"></aside>
+     <main class="main">
+        <dialog id="task-modal">
+            <form method="dialog">
+                <h2 class="modal-title">Nova Tarefa</h2>
+                <input id="task-title" type="textarea" placeholder="Título">
+                <textarea name="description" id="texk-description" placeholder="Descrição"></textarea>
+
+                <button class="cancel-button" value="cancel">Cancelar</button>
+                <button class="save-task" value="default">Salvar</button>
+            </form>
+        </dialog>
+     </main>
+     <aside class="sidebar">
+        <button class="open-modal">Nova Tarefa</button>
+     </aside>
 </body>
 </html>
