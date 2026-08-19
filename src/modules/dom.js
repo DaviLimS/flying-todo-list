@@ -1,8 +1,6 @@
 import { template } from "./storage.js";
 
 /**
- * criar um modal que permite colcoar informações do card
- * fazer um botão que chame esse modal
  * acessar as informações do modal e criar um objeto com elas
  * criar um loop para ler todos os objetos e expo-los
  * colocar o objeto em um json e pegar objetos do json
