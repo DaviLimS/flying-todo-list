@@ -2,7 +2,6 @@ import { template } from "./storage.js";
 import { createAnTodo } from "./todoManager.js";
 
 /**
- * acessar as informações do modal e criar um objeto com elas
  * criar um loop para ler todos os objetos e expo-los
  * colocar o objeto em um json e pegar objetos do json
  * guardar no localStorage
@@ -68,6 +67,10 @@ export function modalSetup() {
         modal.showModal();
     });
     saveButton.addEventListener('click', () => {
+        if(!document.querySelector('#task-title').value || !document.querySelector('#task-description').value) {
+            alert("The fields must be filled out to create a TODO");
+            return;
+        }
         main.append(cardFactory(createAnTodo()));
     });
 }
