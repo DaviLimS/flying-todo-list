@@ -15,6 +15,6 @@ export function createAnTodo() {
         console.warn('Title field or description fild is not defined');
         return;
     }
-    const newTodo = new Todo('test', 'lorem ipsun is blasseedd');
+    const newTodo = new Todo(taskTitle, taskDescription);
     return newTodo
 }
