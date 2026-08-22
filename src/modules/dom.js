@@ -84,8 +84,16 @@ export function modalSetup() {
     deleteAllButton.addEventListener('click', () => {
         modalToAlert.showModal();
     });
+
     acceptAlert.addEventListener('click', () => {
-        localStorage.clear();
+        localStorage.setItem('savedTODOs', JSON.stringify([]));
+        savedTODOs.length = 0;
+
+        main.querySelectorAll('.card').forEach(card => {
+            card.remove();
+        });
+
+        modalToAlert.close();
     });
     recuseAlert.addEventListener('click', () => {
         modalToAlert.close();
@@ -97,5 +105,8 @@ export function modalSetup() {
             return;
         }
         main.append(cardFactory(createAnTodo()));
+        document.querySelector('#tak-title').value = '';
+        document.querySelector('#task-description').value = '';
+        document.querySelector('#thereCheckbox').checked = false;
     });
 }
