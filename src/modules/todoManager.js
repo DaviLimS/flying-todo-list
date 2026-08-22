@@ -7,6 +7,8 @@ class Todo {
     }
 }
 
+let test = 'todo';
+
 export function createAnTodo() {
     const taskTitle = document.querySelector('#task-title').value;
     const taskDescription = document.querySelector("#task-description").value;  
@@ -16,5 +18,6 @@ export function createAnTodo() {
         return;
     }
     const newTodo = new Todo(taskTitle, taskDescription);
+    localStorage.setItem(test, JSON.stringify(newTodo));
     return newTodo
 }
