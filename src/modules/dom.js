@@ -23,9 +23,7 @@ const cardFactory = (info) => {
     const checkbox = document.createElement('input');
     checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox'
-    if (info.checkbox[1] === 1) {
-        checkbox.checked = true;
-    }
+    if (info.checkbox[1] === 1) {   checkbox.checked = true;    }
 
     const description = document.createElement('p');
     description.classList.add('cardDescription');

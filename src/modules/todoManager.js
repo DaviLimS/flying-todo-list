@@ -12,12 +12,13 @@ class Todo {
 export function createAnTodo() {
     const taskTitle = document.querySelector('#task-title').value;
     const taskDescription = document.querySelector("#task-description").value;  
+    const thereCheckbox = document.querySelector('#therecheckbox').value;
 
     if(!taskTitle || !taskDescription) {
         console.warn('Title field or description fild is not defined');
         return;
     }
-    const newTodo = new Todo(taskTitle, taskDescription);
+    const newTodo = new Todo(taskTitle, taskDescription, thereCheckbox);
     savedTODOs.push(newTodo);
     localStorage.setItem('savedTODOs', JSON.stringify(savedTODOs));
     return newTodo;
