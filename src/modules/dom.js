@@ -105,7 +105,7 @@ export function modalSetup() {
             return;
         }
         main.append(cardFactory(createAnTodo()));
-        document.querySelector('#tak-title').value = '';
+        document.querySelector('#task-title').value = '';
         document.querySelector('#task-description').value = '';
         document.querySelector('#thereCheckbox').checked = false;
     });
