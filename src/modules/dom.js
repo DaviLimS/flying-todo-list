@@ -65,9 +65,12 @@ export function loadScreen() {
 export function modalSetup() {
     const modalToTask = document.querySelector('#task-modal');
     const modalToAlert = document.querySelector('#alert-modal');
+    
     const openButton = document.querySelector('.open-modal');
     const deleteAllButton = document.querySelector('.delete-All');
     const saveButton = document.querySelector('.save-task');
+
+    const acceptAlert = document.querySelector('.accept-alert');
 
     if(!openButton || !modalToTask) {
         console.warn("Modal or Button not finded");
@@ -77,9 +80,11 @@ export function modalSetup() {
     openButton.addEventListener('click', () => {
         modalToTask.showModal();
     });
-
     deleteAllButton.addEventListener('click', () => {
-        
+        modalToAlert.showModal();
+    });
+    acceptAlert.addEventListener('click', () => {
+        localStorage.clear();
     });
 
     saveButton.addEventListener('click', () => {
