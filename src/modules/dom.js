@@ -71,6 +71,7 @@ export function modalSetup() {
     const saveButton = document.querySelector('.save-task');
 
     const acceptAlert = document.querySelector('.accept-alert');
+    const recuseAlert = document.querySelector('.recuse-alert');
 
     if(!openButton || !modalToTask) {
         console.warn("Modal or Button not finded");
@@ -86,6 +87,9 @@ export function modalSetup() {
     acceptAlert.addEventListener('click', () => {
         localStorage.clear();
     });
+    recuseAlert.addEventListener('click', () => {
+        modalToAlert.close();
+    })
 
     saveButton.addEventListener('click', () => {
         if(!document.querySelector('#task-title').value || !document.querySelector('#task-description').value) {
