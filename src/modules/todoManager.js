@@ -1,3 +1,5 @@
+import { savedTODOs } from "./storage.js";
+
 class Todo {
     constructor(title, description, checkbox, project)  {
         this.title = title;
@@ -6,8 +8,6 @@ class Todo {
         this.project = project;
     }
 }
-
-let test = 'todo';
 
 export function createAnTodo() {
     const taskTitle = document.querySelector('#task-title').value;
@@ -18,6 +18,7 @@ export function createAnTodo() {
         return;
     }
     const newTodo = new Todo(taskTitle, taskDescription);
-    localStorage.setItem(test, JSON.stringify(newTodo));
-    return newTodo
+    savedTODOs.push(newTodo);
+    localStorage.setItem('savedTODOs', JSON.stringify(savedTODOs));
+    return newTodo;
 }

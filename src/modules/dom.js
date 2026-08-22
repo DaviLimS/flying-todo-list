@@ -1,4 +1,4 @@
-import { template } from "./storage.js";
+import { savedTODOs } from "./storage.js";
 import { createAnTodo } from "./todoManager.js";
 
 /**
@@ -48,9 +48,12 @@ const cardFactory = (info) => {
 }
 
 export function loadScreen() {
-    let defCard = cardFactory(template);
-    if(!main) {console.warn('.main element is not found'); return;}
-    main.appendChild(defCard);
+    const todos = JSON.parse(localStorage.getItem('savedTODOs'))
+
+    todos.foreach(todo => {
+        const card = cardFactory(todo);
+        main.appendChild(card);
+    })
 }
 
 export function modalSetup() {
