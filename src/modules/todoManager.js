@@ -12,7 +12,7 @@ class Todo {
 export function createAnTodo() {
     const taskTitle = document.querySelector('#task-title').value;
     const taskDescription = document.querySelector("#task-description").value;  
-    const thereCheckbox = document.querySelector('#therecheckbox').value;
+    const thereCheckbox = document.querySelector('#thereCheckbox').checked;
 
     if(!taskTitle || !taskDescription) {
         console.warn('Title field or description fild is not defined');

@@ -20,10 +20,9 @@ const cardFactory = (info) => {
     const title = document.createElement('h2');
     title.classList.add('cardTitle');
 
-    const checkbox = document.createElement('input');
-    checkbox.classList.add('checkbox');
-    checkbox.type = 'checkbox'
-    if (info.checkbox[1] === 1) {   checkbox.checked = true;    }
+    const check = document.createElement('input');
+    check.classList.add('checkbox');
+    check.type = 'checkbox';
 
     const description = document.createElement('p');
     description.classList.add('cardDescription');
@@ -32,7 +31,9 @@ const cardFactory = (info) => {
     title.textContent = info.title || '';
     description.textContent = info.description || '';
 
-    if(info.checkbox[0] === 1) { headerDiv.append(checkbox) }
+    if(info.checkbox === true) { 
+        headerDiv.append(check) 
+    }
     headerDiv.append(title);
     middleDiv.appendChild(description);
     //lowerDiv.appendChild();
