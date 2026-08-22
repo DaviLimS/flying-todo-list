@@ -63,18 +63,19 @@ export function loadScreen() {
 }
 
 export function modalSetup() {
-    const modal = document.querySelector('#task-modal');
+    const modalToTask = document.querySelector('#task-modal');
+    const modalToAlert = document.querySelector('#alert-modal');
     const openButton = document.querySelector('.open-modal');
     const deleteAllButton = document.querySelector('.delete-All');
     const saveButton = document.querySelector('.save-task');
 
-    if(!openButton || !modal) {
+    if(!openButton || !modalToTask) {
         console.warn("Modal or Button not finded");
         return;
     }
 
     openButton.addEventListener('click', () => {
-        modal.showModal();
+        modalToTask.showModal();
     });
 
     deleteAllButton.addEventListener('click', () => {
