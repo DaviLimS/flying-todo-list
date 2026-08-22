@@ -65,6 +65,7 @@ export function loadScreen() {
 export function modalSetup() {
     const modal = document.querySelector('#task-modal');
     const openButton = document.querySelector('.open-modal');
+    const deleteAllButton = document.querySelector('.delete-All');
     const saveButton = document.querySelector('.save-task');
 
     if(!openButton || !modal) {
@@ -75,6 +76,11 @@ export function modalSetup() {
     openButton.addEventListener('click', () => {
         modal.showModal();
     });
+
+    deleteAllButton.addEventListener('click', () => {
+        
+    });
+
     saveButton.addEventListener('click', () => {
         if(!document.querySelector('#task-title').value || !document.querySelector('#task-description').value) {
             alert("The fields must be filled out to create a TODO");
