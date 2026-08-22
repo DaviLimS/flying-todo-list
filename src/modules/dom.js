@@ -2,11 +2,7 @@ import { savedTODOs } from "./storage.js";
 import { createAnTodo } from "./todoManager.js";
 
 /**
- * criar um loop para ler todos os objetos e expo-los
- * colocar o objeto em um json e pegar objetos do json
- * guardar no localStorage
  * apagar objetos
- * alterar localStorage
  */
 const main = document.querySelector('.main');
 
@@ -27,7 +23,7 @@ const cardFactory = (info) => {
     const checkbox = document.createElement('input');
     checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox'
-    if (template.checkbox[1] === 1) {
+    if (info.checkbox[1] === 1) {
         checkbox.checked = true;
     }
 
@@ -38,7 +34,7 @@ const cardFactory = (info) => {
     title.textContent = info.title || '';
     description.textContent = info.description || '';
 
-    if(template.checkbox[0] === 1) { headerDiv.append(checkbox) }
+    if(info.checkbox[0] === 1) { headerDiv.append(checkbox) }
     headerDiv.append(title);
     middleDiv.appendChild(description);
     //lowerDiv.appendChild();
@@ -50,10 +46,21 @@ const cardFactory = (info) => {
 export function loadScreen() {
     const todos = JSON.parse(localStorage.getItem('savedTODOs'))
 
-    todos.foreach(todo => {
-        const card = cardFactory(todo);
-        main.appendChild(card);
-    })
+    if(todos) {
+        todos.forEach(todo => {
+            if(!todo) {
+                return;
+            }
+            const card = cardFactory(todo);
+            main.appendChild(card);
+        })
+    }
+    else {
+        savedTODOs.forEach(todo => {
+            const card = cardFactory(todo);
+            main.appendChild(card);
+        })
+    }
 }
 
 export function modalSetup() {
