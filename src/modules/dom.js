@@ -105,8 +105,8 @@ export function modalSetup() {
             return;
         }
         main.append(cardFactory(createAnTodo()));
-        document.querySelector('#task-title').value = '';
-        document.querySelector('#task-description').value = '';
-        document.querySelector('#thereCheckbox').checked = false;
+
+        const form = document.querySelector('#formCardCreator');
+        if(form instanceof HTMLFormElement) {   form.reset()    }
     });
 }
