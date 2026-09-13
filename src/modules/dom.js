@@ -38,11 +38,19 @@ const cardFactory = (info, index) => {
     if(info.checkbox === true) { 
         headerDiv.append(check) 
     }
-    headerDiv.appendChild(title, deleteButton);
+    headerDiv.append(title, deleteButton);
     middleDiv.appendChild(description);
     //lowerDiv.appendChild();
 
     card.append(headerDiv, middleDiv, lowerDiv);
+
+    deleteButton.addEventListener('click', () => {
+        const index = Number(card.dataset.index);
+        savedTODOs.splice(index, 1);
+        localStorage.setItem('saveTODOs', JSON.stringify(savedTODOs));
+        card.remove();
+    });
+
     return card;
 }
 
@@ -59,8 +67,8 @@ export function loadScreen() {
         })
     }
     else {
-        savedTODOs.forEach(todo => {
-            const card = cardFactory(todo);
+        savedTODOs.forEach((todo, index) => {
+            const card = cardFactory(todo, index, savedTODOs);
             main.appendChild(card);
         })
     }
@@ -84,12 +92,6 @@ export function modalSetup() {
 
     openButton.addEventListener('click', () => {
         modalToTask.showModal();
-    });
-    deleteButton.addEventListener('click', () => {
-        const index = Number(card.dataset.index);
-        todos.splice(index, 1);
-        localStorage.setItem('SaveTODOS', JSON.stringify(todos));
-        card.remove();
     });
     deleteAllButton.addEventListener('click', () => {
         modalToAlert.showModal();
