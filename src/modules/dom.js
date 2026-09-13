@@ -8,6 +8,7 @@ const main = document.querySelector('.main');
 
 const cardFactory = (info, index) => {
     const card = document.createElement('div');
+    card.dataset.index = index;
     card.classList.add('card');
 
     const headerDiv = document.createElement('div');
@@ -19,6 +20,9 @@ const cardFactory = (info, index) => {
 
     const title = document.createElement('h2');
     title.classList.add('cardTitle');
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('deleteButton');
+    deleteButton.textContent = 'X'
 
     const check = document.createElement('input');
     check.classList.add('checkbox');
@@ -34,7 +38,7 @@ const cardFactory = (info, index) => {
     if(info.checkbox === true) { 
         headerDiv.append(check) 
     }
-    headerDiv.append(title);
+    headerDiv.appendChild(title, deleteButton);
     middleDiv.appendChild(description);
     //lowerDiv.appendChild();
 
@@ -80,6 +84,12 @@ export function modalSetup() {
 
     openButton.addEventListener('click', () => {
         modalToTask.showModal();
+    });
+    deleteButton.addEventListener('click', () => {
+        const index = Number(card.dataset.index);
+        todos.splice(index, 1);
+        localStorage.setItem('SaveTODOS', JSON.stringify(todos));
+        card.remove();
     });
     deleteAllButton.addEventListener('click', () => {
         modalToAlert.showModal();
