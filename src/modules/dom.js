@@ -6,9 +6,9 @@ import { createAnTodo } from "./todoManager.js";
  */
 const main = document.querySelector('.main');
 
-const cardFactory = (info) => {
-    const cardTemplate = document.createElement('div');
-    cardTemplate.classList.add('card');
+const cardFactory = (info, index) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
 
     const headerDiv = document.createElement('div');
     headerDiv.classList.add('headerCard')
@@ -38,19 +38,19 @@ const cardFactory = (info) => {
     middleDiv.appendChild(description);
     //lowerDiv.appendChild();
 
-    cardTemplate.append(headerDiv, middleDiv, lowerDiv);
-    return cardTemplate;
+    card.append(headerDiv, middleDiv, lowerDiv);
+    return card;
 }
 
 export function loadScreen() {
     const todos = JSON.parse(localStorage.getItem('savedTODOs'))
 
     if(todos) {
-        todos.forEach(todo => {
+        todos.forEach((todo, index) => {
             if(!todo) {
                 return;
             }
-            const card = cardFactory(todo);
+            const card = cardFactory(todo, index);
             main.appendChild(card);
         })
     }
