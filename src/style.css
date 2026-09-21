@@ -13,6 +13,17 @@ body {
     overflow-x: hidden;
 }
 
+.btn {
+    width: 6.5rem;
+    height: 1.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn:hover {
+    transform: scale(1.055);
+}
+
 .header {
     background-color: red;
     width: 100%;
