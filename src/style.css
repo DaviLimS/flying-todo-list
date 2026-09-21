@@ -56,10 +56,12 @@ body {
 
 .sidebarButtons {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 15px;
+    width: 100%;
     height: fit-content;
-
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
