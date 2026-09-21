@@ -33,11 +33,22 @@ body {
 
 .sidebar {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
     background-color: yellow;
-    width: 21%;
+    width: 18%;
     height: 100vh;
     grid-column: 1 / 2;
     grid-row: 1 / 6;
+}
+
+.sidebarButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: fit-content;
+
 }
 
 .card {
