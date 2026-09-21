@@ -1,9 +1,6 @@
 import { savedTODOs } from "./storage.js";
 import { createAnTodo } from "./todoManager.js";
 
-/**
- * apagar objetos
- */
 const main = document.querySelector('.main');
 
 const cardFactory = (info, index) => {
