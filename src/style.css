@@ -73,9 +73,9 @@ body {
 #formCardCreator {
     align-self: center;
     justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    padding: 25px;
+    border-radius: 15px;
     width: 40%;
     height: 50%;
     background-color: rgb(255, 255, 255);
