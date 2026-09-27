@@ -17,6 +17,11 @@ body {
     overflow-x: hidden;
 }
 
+.textarea {
+    border: 0.5px rgba(0, 0, 0, 0.153) solid;
+    border-radius: 5px;
+}
+
 .btn {
     width: 6.5rem;
     height: 1.7rem;
@@ -93,6 +98,14 @@ body {
 }
 #thereCheckbox {
     margin-right: 0.5rem;
+}
+
+#task-title {
+    margin-bottom: 0.8rem;
+}
+#task-description {
+    resize: none;
+    overflow: hidden;
 }
 
 .card {
