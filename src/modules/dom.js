@@ -3,6 +3,12 @@ import { createAnTodo } from "./todoManager.js";
 
 const main = document.querySelector('.main');
 
+const textarea = document.querySelector('#task-description');
+textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`
+})
+
 const cardFactory = (info, index) => {
     const card = document.createElement('div');
     card.dataset.index = index;
