@@ -50,7 +50,7 @@ const cardFactory = (info, index) => {
     deleteButton.addEventListener('click', () => {
         const index = Number(card.dataset.index);
         savedTODOs.splice(index, 1);
-        localStorage.setItem('saveTODOs', JSON.stringify(savedTODOs));
+        localStorage.setItem('savedTODOs', JSON.stringify(savedTODOs));
         card.remove();
     });
 
@@ -80,7 +80,7 @@ export function loadScreen() {
 export function modalSetup() {
     const modalToTask = document.querySelector('#task-modal');
     const modalToAlert = document.querySelector('#alert-modal');
-    
+
     const openButton = document.querySelector('.open-modal');
     const deleteAllButton = document.querySelector('.delete-All');
     const saveButton = document.querySelector('.save-task');
@@ -88,21 +88,36 @@ export function modalSetup() {
     const acceptAlert = document.querySelector('.accept-alert');
     const recuseAlert = document.querySelector('.recuse-alert');
 
+    if (modalToTask && modalToTask.open) {
+        modalToTask.close();
+    }
+
+    if (modalToAlert && modalToAlert.open) {
+        modalToAlert.close();
+    }
+
     if(!openButton || !modalToTask) {
         console.warn("Modal or Button not finded");
         return;
     }
 
     openButton.addEventListener('click', () => {
+        if (modalToAlert && modalToAlert.open) {
+            modalToAlert.close();
+        }
         modalToTask.showModal();
     });
+
     deleteAllButton.addEventListener('click', () => {
+        if (modalToTask && modalToTask.open) {
+            modalToTask.close();
+        }
         modalToAlert.showModal();
     });
 
     acceptAlert.addEventListener('click', () => {
-        localStorage.setItem('savedTODOs', JSON.stringify([]));
         savedTODOs.length = 0;
+        localStorage.setItem('savedTODOs', JSON.stringify(savedTODOs));
 
         main.querySelectorAll('.card').forEach(card => {
             card.remove();
@@ -110,18 +125,23 @@ export function modalSetup() {
 
         modalToAlert.close();
     });
+
     recuseAlert.addEventListener('click', () => {
         modalToAlert.close();
-    })
+    });
 
     saveButton.addEventListener('click', () => {
         if(!document.querySelector('#task-title').value || !document.querySelector('#task-description').value) {
             alert("The fields must be filled out to create a TODO");
             return;
         }
+
         main.append(cardFactory(createAnTodo()));
 
         const form = document.querySelector('#formCardCreator');
-        if(form instanceof HTMLFormElement) {   form.reset()    }
+        if(form instanceof HTMLFormElement) {
+            form.reset();
+        }
+        modalToTask.close();
     });
 }

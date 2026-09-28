@@ -139,6 +139,16 @@ body {
     min-height: 4em;
 }
 
+#alert-modal {
+    justify-self: center;
+    display: grid;
+    padding: 25px;
+    border-radius: 15px;
+    width: 40%;
+    height: 50%;
+    background-color: rgb(255, 255, 255);
+}
+
 .card {
     display: grid;
     grid-template-rows: repeat(9, 1fr);
