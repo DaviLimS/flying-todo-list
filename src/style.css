@@ -104,7 +104,6 @@ body {
 .button-area {
     display: flex;
     justify-content: space-around;
-    align-items: start;
     width: 100%;
     height: 70%;
     margin-top: 1rem;
