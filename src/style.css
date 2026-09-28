@@ -18,7 +18,7 @@ body {
 }
 
 .textarea {
-    border: 0.5px rgba(0, 0, 0, 0.153) solid;
+    border: 0.5px rgba(0, 0, 0, 0.253) solid;
     border-radius: 5px;
 }
 
@@ -100,7 +100,17 @@ body {
     margin-right: 0.5rem;
 }
 
+.save-task {
+    width: 30%;
+    height: auto;
+}
+.cancel-button {
+    width: 30%;
+    height: auto;
+}
+
 #task-title {
+    margin-top: 0.8rem;
     margin-bottom: 0.8rem;
 }
 #task-description {
