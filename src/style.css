@@ -139,7 +139,7 @@ body {
     min-height: 4em;
 }
 
-#alert-modal:open {
+#alert-modal[open] {
     justify-self: center;
     display: grid;
     padding: 25px;
