@@ -139,7 +139,7 @@ body {
     min-height: 4em;
 }
 
-#alert-modal {
+#alert-modal:open {
     justify-self: center;
     display: grid;
     padding: 25px;
@@ -159,6 +159,16 @@ body {
     border-radius: 20px;
     padding: 15px;
     margin: 1.5rem;
+}
+
+.deleteButton {
+    position: absolute;
+    margin-bottom: 3.5rem;
+    margin-right: 12.5rem;
+    background: none;
+}
+.deleteButton:hover {
+    cursor: pointer;
 }
 
 .cardTitle {
