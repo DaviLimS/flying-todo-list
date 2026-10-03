@@ -164,7 +164,7 @@ body {
 .deleteButton {
     position: absolute;
     margin-bottom: 3.5rem;
-    margin-right: 12.5rem;
+    margin-left: 12.5rem;
     background: none;
 }
 .deleteButton:hover {
