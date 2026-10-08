@@ -150,6 +150,7 @@ body {
 }
 
 .card {
+    position: relative;
     display: grid;
     grid-template-rows: repeat(9, 1fr);
     width: 13rem;
@@ -197,6 +198,19 @@ body {
     flex-direction: row-reverse;
     width: 80%;
     justify-self: center;
+}
+.deleteButton {
+    font-weight: lighter;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    position: absolute;
+    right: 13.5rem;
+    bottom: 18rem;
+}
+.checkbox {
+    position: absolute;
+    left: 13rem;
+    bottom: 18rem;
 }
 
 .middleCard {
