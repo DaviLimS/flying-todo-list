@@ -205,12 +205,12 @@ body {
     cursor: pointer;
     position: absolute;
     right: 13.5rem;
-    bottom: 18rem;
+    bottom: 14.5rem;
 }
 .checkbox {
     position: absolute;
     left: 13rem;
-    bottom: 18rem;
+    bottom: 14.5rem;
 }
 
 .middleCard {
